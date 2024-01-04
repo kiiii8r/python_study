@@ -41,5 +41,26 @@ def main():
         else:  # isinstance(message, SystemMessage):
             st.write(f"System message: {message.content}")
     
+        # サイドバーのタイトルを設定
+    st.sidebar.title("ChatGPT")
+    
+    # サイドバーにオプションボタンを追加
+    model = st.sidebar.selectbox("Choose a model", ["GPT-3.5", "GPT-4"])
+    
+    # サイドバーにボタンを追加
+    clear_button = st.sidebar.button("Clear chat history", key="clear")
+    
+    # サイドバーにスライダーを追加、temperatureの値を選択可能にする
+    # 初期値は0.0、最小値は0.0、最大値は2.0、ステップは0.1
+    temperature = st.sidebar.slider("Temperature", 0.0, 2.0, 0.0, 0.1)
+    
+    st.sidebar.markdown("## Costs")
+    st.sidebar.markdown("**Total cost**")
+    for i in range(3):
+        st.sidebar.markdown(f"- ${i+0.01}")
+        
+        
+        
+
 if __name__ == '__main__':
     main()
