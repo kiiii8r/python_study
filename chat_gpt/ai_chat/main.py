@@ -24,6 +24,7 @@ def main():
             response = llm(st.session_state.messages)
         st.session_state.messages.append(AIMessage(content=response.content))
 
+    
     # チャット履歴の表示
     messages = st.session_state.get('messages', [])
     for message in messages:
